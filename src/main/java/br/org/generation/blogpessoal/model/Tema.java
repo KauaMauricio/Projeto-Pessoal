@@ -13,44 +13,45 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
-@Table(name = "tb_tema")
-public class Tema {
+@Table(name = "tb_temas")
+public class Tema{
+	    
+	  @Id	
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private long id;
+		
+		@NotNull(message = "O atributo Descrição deve ser obrigatório")
+		private String descricao;
+		
+		@OneToMany(mappedBy = "tema", cascade = CascadeType.MERGE)
+		@JsonIgnoreProperties({"tema"})
+		private List<Postagem> postagem;
+		
+		
+		public long getId() {
+			return id;
+		}
 
-	@Id	
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@NotNull
-	private String descricao;
-	
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("tema")
-	private List<Postagem> postagem;
+		public void setId(long id) {
+			this.id = id;
+		}
 
-	public long getId() {
-		return id;
-	}
+		public String getDescricao() {
+			return descricao;
+		}
 
-	public void setId(long id) {
-		this.id = id;
-	}
+		public void setDescricao(String descricao) {
+			this.descricao = descricao;
+		}
 
-	public String getDescricao() {
-		return descricao;
-	}
+		public List<Postagem> getPostagem() {
+			return postagem;
+		}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public List<Postagem> getPostagem() {
-		return postagem;
-	}
-
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
-	}
-	
+		public void setPostagem(List<Postagem> postagem) {
+			this.postagem = postagem;
+		}
+		
+		
 }

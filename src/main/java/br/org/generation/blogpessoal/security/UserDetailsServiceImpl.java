@@ -11,20 +11,18 @@ import org.springframework.stereotype.Service;
 import br.org.generation.blogpessoal.model.Usuario;
 import br.org.generation.blogpessoal.repository.UsuarioRepository;
 
-
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService{
-	
+public class UserDetailsServiceImpl implements UserDetailsService {
+
 	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
+	private UsuarioRepository userRepository;
+
 	@Override
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException{
-		Optional<Usuario> usuario = usuarioRepository.findByUsuario(userName);
-	
-		usuario.orElseThrow(() -> new UsernameNotFoundException(userName + " Este usuario não foi encontrado"));
-		
+	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+
+		Optional<Usuario> usuario = userRepository.findByUsuario(userName);
+		usuario.orElseThrow(() -> new UsernameNotFoundException(userName + " not found."));
+
 		return usuario.map(UserDetailsImpl::new).get();
 	}
-
 }

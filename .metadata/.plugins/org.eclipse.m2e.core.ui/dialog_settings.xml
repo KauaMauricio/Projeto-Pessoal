@@ -2,7 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\enzom\OneDrive\Área de Trabalho\blogPessoal"/>
+			<item value="C:\Users\enzom\OneDrive\Área de Trabalho\blogPessoal\zailton"/>
+			<item value="C:\Users\enzom\OneDrive\Área de Trabalho\blogPessoal\src"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
