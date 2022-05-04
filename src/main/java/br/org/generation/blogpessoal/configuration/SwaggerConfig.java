@@ -20,8 +20,8 @@ public class SwaggerConfig {
 		return new OpenAPI()
 				.info(new Info().title("Projeto Blog Pessoal").description("Projeto Blog Pessoal - Generation Brasil")
 						.version("v0.0.1").license(new License().name("generation.org.br").url("http://springdoc.org"))
-						.contact(new Contact().name("Thiago Faccipieri").url("https://github.com/tjfaccipieri")
-								.email("thiago.faccipieri@gmail.com")));
+						.contact(new Contact().name("Kauã Mauricio").url("https://github.com/KauaMauricio")
+								.email("kauamauricioamorim@gmail.com")));
 	}
 
 	@Bean
